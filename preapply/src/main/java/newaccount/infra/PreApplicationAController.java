@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/preApplicationAS")
+@RequestMapping(value = "/preapply")
 @Transactional
 public class PreApplicationAController {
 

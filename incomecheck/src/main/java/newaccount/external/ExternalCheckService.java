@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @FeignClient(name = "externalcheck", url = "${api.url.externalcheck}")
 public interface ExternalCheckService {
-    @RequestMapping(method = RequestMethod.POST, path = "/externalChecks")
-    public void externalCheck(@RequestBody ExternalCheck externalCheck);
+    @RequestMapping(method = RequestMethod.GET, path = "/externalChecks/checkincome/{regNo}")
+    public ExternalCheck externalCheck(@PathVariable String regNo);
+
     // keep
 
 }

@@ -18,7 +18,8 @@ public class ExternalCheck {
     private String regNo;
 
     private Long incomeExtAmt;
-
+ 
+     
     @PostPersist
     public void onPostPersist() {}
 

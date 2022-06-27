@@ -6,6 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.context.ApplicationContext;
+import newaccount.domain.ExternalCheck;
+import newaccount.domain.ExternalCheckRepository;
 
 @SpringBootApplication
 @EnableBinding(KafkaProcessor.class)
@@ -17,5 +19,7 @@ public class ExternalcheckApplication {
     public static void main(String[] args) {
         applicationContext =
             SpringApplication.run(ExternalcheckApplication.class, args);
+
+      
     }
 }

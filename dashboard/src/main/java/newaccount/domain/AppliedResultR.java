@@ -6,7 +6,7 @@ import javax.persistence.*;
 import lombok.Data;
 
 @Entity
-@Table(name = "AppliedResultR_table")
+@Table(name = "dashboard_table")
 @Data
 public class AppliedResultR {
 

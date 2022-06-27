@@ -3,6 +3,7 @@ package newaccount.domain;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
+import java.time.LocalDate;
 import lombok.Data;
 import newaccount.AccountopenApplication;
 import newaccount.domain.AccountOpenedE;
@@ -24,7 +25,7 @@ public class AccountA {
 
     private String accountStatus;
 
-    private String accountBalance;
+    private int accountBalance;
 
     @PostPersist
     public void onPostPersist() {
@@ -40,22 +41,26 @@ public class AccountA {
     }
 
     public static void createAccount(IncomeVerifiedE incomeVerifiedE) {
-        /** Example 1:  new item 
+        //** Example 1:  new item */
         AccountA accountA = new AccountA();
-        repository().save(accountA);
+        if(incomeVerifiedE.getVerifyResult().equals("Y")){
 
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(incomeVerifiedE.get???()).ifPresent(accountA->{
+            accountA.setAccountStatus("OPEN");
+            accountA.setAcctNo("12345678901234567890");
+            accountA.setAccountBalance(0);
+            accountA.setCustNo(incomeVerifiedE.getCustNo());
             
-            accountA // do something
-            repository().save(accountA);
-
-
-         });
-        */
-
+            accountA.setOpenDate(LocalDate.now().toString());
+            repository().save(accountA); 
+            System.out.println("계좌생성완료");
+        }        
+        else
+        {
+            System.out.println("소득검증결과 신규불가합니다. 소득 " + incomeVerifiedE.getIncomeAmount());
+            return;
+        }             
+        
+       //repository().save(accountA); 
+       
     }
 }

@@ -54,21 +54,8 @@ public class PolicyHandler {
         PreApplicationA.statusUpdateP(event);
     }
 
-    @StreamListener(KafkaProcessor.INPUT)
-    public void wheneverPreAppliedE_StatusUpdateP(
-        @Payload PreAppliedE preAppliedE
-    ) {
-        if (!preAppliedE.validate()) return;
-        PreAppliedE event = preAppliedE;
-        System.out.println(
-            "\n\n##### listener StatusUpdateP : " +
-            preAppliedE.toJson() +
-            "\n\n"
-        );
-
-        // Sample Logic //
-        PreApplicationA.statusUpdateP(event);
-    }
+    
+    
     // keep
 
 }

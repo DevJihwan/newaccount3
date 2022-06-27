@@ -5,8 +5,8 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource(
-    collectionResourceRel = "incomeVerificationResultAS",
-    path = "incomeVerificationResultAS"
+    collectionResourceRel = "incomecheck",
+    path = "incomecheck"
 )
 public interface IncomeVerificationResultARepository
     extends PagingAndSortingRepository<IncomeVerificationResultA, Long> {}

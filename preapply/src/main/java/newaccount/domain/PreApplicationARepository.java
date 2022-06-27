@@ -5,8 +5,8 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource(
-    collectionResourceRel = "preApplicationAS",
-    path = "preApplicationAS"
+    collectionResourceRel = "preapply",
+    path = "preapply"
 )
 public interface PreApplicationARepository
     extends PagingAndSortingRepository<PreApplicationA, Long> {}

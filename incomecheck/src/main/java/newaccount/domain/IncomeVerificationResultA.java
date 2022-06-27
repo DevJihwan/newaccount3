@@ -49,6 +49,46 @@ public class IncomeVerificationResultA {
     }
 
     public static void incomeVerify(PreAppliedE preAppliedE) {
+
+    
+        System.out.println("------------------------------------------------------------------------") ;
+        System.out.println("사전등록 Event -> 소득검증 Policy 호출 ");
+        System.out.println("------------------------------------------------------------------------") ;
+        
+        Random rand = new Random();
+        int iValue = 10000000 * rand.nextInt(10);
+
+        incomeVerificationResultA.setCustNo(preAppliedE.getCustNo()); 
+
+        // randam 발생한 소득금저장 
+        incomeVerificationResultA.setIncomeAmount((long)iValue);
+     
+        // 소득금액 5000만원 이상이면 소득검증결과 Y , 상태정보 PASSED
+        if(iValue > 50000000)
+        {
+            incomeVerificationResultA.setVerifyResult("Y");
+            incomeVerificationResultA.setAppliedStatus("PASSED");
+        
+        }
+        // 소득금액 5000만원 이상이면 소득검증결과 N , 상태정보 FAILED
+        else
+        {
+            incomeVerificationResultA.setVerifyResult("N");
+            incomeVerificationResultA.setAppliedStatus("FAILED");
+        }
+        // incomeVerificationResultA.setVerifyResult(preAppliedE.getCustomerId());
+        // incomeVerificationResultA.setVerifyResult("Y");
+        // incomeVerificationResultA.setAppliedStatus("PASSED");
+        // 결과값 저장 
+        repository().save(incomeVerificationResultA);
+
+        System.out.println("---소득검증---------------------------------------------------------------------") ;
+        System.out.println("고객번호 :" + incomeVerificationResultA.getAppliedStatus());
+        
+        System.out.println("상태정보 :" + incomeVerificationResultA.getAppliedStatus());
+        System.out.println("소득금액 :" + incomeVerificationResultA.getIncomeAmount());
+        
+        System.out.println("------------------------------------------------------------------------") ;            
         /** Example 1:  new item 
         IncomeVerificationResultA incomeVerificationResultA = new IncomeVerificationResultA();
         repository().save(incomeVerificationResultA);

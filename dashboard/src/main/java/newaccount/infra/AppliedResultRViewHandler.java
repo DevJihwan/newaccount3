@@ -44,17 +44,17 @@ public class AppliedResultRViewHandler {
             if (!accountOpenedE.validate()) return;
             // view 객체 조회
 
-            List<AppliedResultR> appliedResultRList = appliedResultRRepository.findByCustNo(
+            AppliedResultR appliedResultR = appliedResultRRepository.findByCustNo(
                 accountOpenedE.getCustNo()
             );
-            for (AppliedResultR appliedResultR : appliedResultRList) {
+            
                 // view 객체에 이벤트의 eventDirectValue 를 set 함
                 appliedResultR.setAppliedStatus(
                     accountOpenedE.getAppliedStatus()
                 );
                 // view 레파지 토리에 save
                 appliedResultRRepository.save(appliedResultR);
-            }
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -68,15 +68,15 @@ public class AppliedResultRViewHandler {
             if (!preAppliedE.validate()) return;
             // view 객체 조회
 
-            List<AppliedResultR> appliedResultRList = appliedResultRRepository.findByCustNo(
+            AppliedResultR appliedResultR = appliedResultRRepository.findByCustNo(
                 preAppliedE.getCustNo()
             );
-            for (AppliedResultR appliedResultR : appliedResultRList) {
+            
                 // view 객체에 이벤트의 eventDirectValue 를 set 함
                 appliedResultR.setAppliedStatus(preAppliedE.getAppliedStatus());
                 // view 레파지 토리에 save
                 appliedResultRRepository.save(appliedResultR);
-            }
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -90,17 +90,17 @@ public class AppliedResultRViewHandler {
             if (!incomeVerifiedE.validate()) return;
             // view 객체 조회
 
-            List<AppliedResultR> appliedResultRList = appliedResultRRepository.findByCustNo(
+            AppliedResultR appliedResultR = appliedResultRRepository.findByCustNo(
                 incomeVerifiedE.getCustNo()
             );
-            for (AppliedResultR appliedResultR : appliedResultRList) {
+            
                 // view 객체에 이벤트의 eventDirectValue 를 set 함
                 appliedResultR.setAppliedStatus(
                     incomeVerifiedE.getAppliedStatus()
                 );
                 // view 레파지 토리에 save
                 appliedResultRRepository.save(appliedResultR);
-            }
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
